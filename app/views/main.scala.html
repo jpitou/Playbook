@@ -13,13 +13,13 @@
 	<body>
 	    <div id="playbook">
     		<header>
-    			<img src="@{'public/images/logo.png'}" alt="logo" id="logo" />
+    			<img src="@routes.Assets.at("images/logo.png")" alt="logo" id="logo" />
     			<h1>PlayBook <span>by jpitou</span></h1>
     		</header>
     		<nav>
-    			<a id="home" href="@{index()}" class="${request.action =~ /index/ ? 'selected' : ''}">Home</a>
-    			<a id="list" href="@{list()}" class="${request.action =~ /list/ ? 'selected' : ''}">List</a>
-    			<a id="new" href="@{form()}" class="${request.action =~ /form|save/ ? 'selected' : ''}">New</a>
+    			<a>Home</a>
+    			<a>Ajouter</a>
+    			<a>Supprimer</a>
     		</nav>
     		<section>
     		    @body
