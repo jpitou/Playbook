@@ -8,6 +8,7 @@ create table User (
   first_name                varchar(255),
   birth_date                timestamp,
   email                     varchar(255),
+  password                  varchar(255),
   phone_number              integer)
 ;
 

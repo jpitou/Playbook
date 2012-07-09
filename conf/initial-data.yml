@@ -1,0 +1,27 @@
+# Users
+
+users:
+
+  - !!models.User
+lastName: Pitou
+firstName: Julien
+email: pitou.ju@gmail.com
+birthDate: 23-08-1989
+password: jpitou
+phoneNumber: 0620035167
+
+  - !!models.User
+lastName: Thomas
+firstName: Sloane
+email: sthomas@gmail.com
+birthDate: 02-02-1989
+password: sthomas
+phoneNumber: 0637552067
+      
+  - !!models.User
+lastName: Duris
+firstName: Cristopher
+email: cduris@gmail.com
+birthDate: 07-08-1988
+password: cduris
+phoneNumber: 0147922506  

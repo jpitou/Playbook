@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import play.data.validation.Constraints.*;
@@ -25,14 +26,44 @@ public class User extends Model {
     @Email
     public String email;
     
+    @Required
+    public String password;
+    
     public int phoneNumber;
 
-	public User(String lastName, String firstName, Date birthDate, String email, int phoneNumber) {
-		super();
-		this.lastName = lastName;
-		this.firstName = firstName;
-		this.birthDate = birthDate;
-		this.email = email;
-		this.phoneNumber = phoneNumber;
-	} 
+//	public User(String lastName, String firstName, Date birthDate, String email, String password, int phoneNumber) {
+//		super();
+//		this.lastName = lastName;
+//		this.firstName = firstName;
+//		this.birthDate = birthDate;
+//		this.email = email;
+//		this.password = password;
+//		this.phoneNumber = phoneNumber;
+//	} 
+//	
+	public static Model.Finder<String,User> find = new Model.Finder(String.class, User.class);
+	
+    /**
+     * Retrieve all users.
+     */
+    public static List<User> findAll() {
+        return find.all();
+    }
+
+    /**
+     * Retrieve a User from email.
+     */
+    public static User findByEmail(String email) {
+        return find.where().eq("email", email).findUnique();
+    }
+    
+	/**
+     * Authenticate a User.
+     */
+    public static User authenticate(String email, String password) {
+        return find.where()
+            .eq("email", email)
+            .eq("password", password)
+            .findUnique();
+    }
 }
